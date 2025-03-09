@@ -1,6 +1,8 @@
-import { Button, StyleSheet, Text, View } from "react-native";
-import { useWeather } from "../hooks/useWeather";
+import { StyleSheet, Text, View } from "react-native";
+import { CurrentWeatherDisplay } from "../components/CurrentWeatherDisplay";
 import { InputField } from "../components/InputField";
+import { SearchButton } from "../components/SearchButton";
+import { useWeather } from "../hooks/useWeather";
 
 
 
@@ -9,10 +11,10 @@ export const Weather:React.FC = () => {
 
     return (
         <View style={styles.container}>
-        <Text>Weather</Text>
-        <InputField location={location} setLocation={setLocation}/>
-        <Button title="Fetch Weather" onPress={fetchWeatherData}/>
-        <Text>{`The weather in ${weatherData?.location.name} is ${weatherData?.current.temp_c} C degrees.`}</Text>
+            <Text>Weather</Text>
+            <InputField location={location} setLocation={setLocation}/>
+            <SearchButton fetchWeatherData={fetchWeatherData}/>
+            <CurrentWeatherDisplay weatherData={weatherData}/>
         </View>
     );
 }
