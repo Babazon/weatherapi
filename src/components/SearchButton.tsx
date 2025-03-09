@@ -1,4 +1,5 @@
 import { Button } from "react-native"
+import { WithLoading } from "./hoc/WithLoading"
 
 interface Props {
     fetchWeatherData: () => Promise<void>
@@ -10,3 +11,5 @@ export const SearchButton:React.FC<Props> = ({fetchWeatherData}) => {
 
     )
 }
+
+export const SearchButtonWithLoading = WithLoading(SearchButton)

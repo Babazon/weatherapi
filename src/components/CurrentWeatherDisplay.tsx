@@ -1,5 +1,6 @@
 import { View, Text } from "react-native";
 import { CurrentWeatherResponse, Maybe } from "../services/weatherApi/weatherTypes";
+import { WithError } from "./hoc/WithError";
 
 interface Props {
     weatherData: Maybe<CurrentWeatherResponse>
@@ -14,3 +15,6 @@ export const CurrentWeatherDisplay:React.FC<Props> = ({weatherData}) => {
         </View>
     )
 };
+
+
+export const CurrentWeatherDisplayWithError = WithError(CurrentWeatherDisplay)

@@ -1,17 +1,20 @@
 import { useState, useCallback } from "react";
 import { Maybe, CurrentWeatherResponse } from "../services/weatherApi/weatherTypes";
-import { WeatherApi } from "../services/weatherApi/weatherApi";
+import { useWeatherApiContext } from "../context/WeatherContext";
 
-const baseUrl = 'https://api.weatherapi.com/v1';
-const apiKey = 'e55f6730548449aab9370829241604';
 
-const weatherApi = new WeatherApi({baseUrl, apiKey});
 
 export const useWeather = () => {
         const [weatherData, setWeatherData] = useState<Maybe<CurrentWeatherResponse>>(null);
         const [location, setLocation] = useState<string>('');
+        const weatherApi = useWeatherApiContext();
+
+        const [isLoading, setIsLoading] = useState(false);
+        const [isError, setIsError] = useState(false);
     
         const fetchWeatherData = useCallback(async ()  => {
+            setIsLoading(true);
+            setIsError(false);
             try {
                 const weatherData = await weatherApi.getCurrentWeather(location)
                 console.log(weatherData);
@@ -20,9 +23,12 @@ export const useWeather = () => {
                     setWeatherData(weatherData);
                 }
             } catch (error) {
+                setIsError(true);
                 console.log(error);
+            } finally {
+                setIsLoading(false);
             }
         },[location])
 
-        return {weatherData, location, setLocation, fetchWeatherData};
+        return {weatherData, location, setLocation, fetchWeatherData, isLoading, isError};
     }

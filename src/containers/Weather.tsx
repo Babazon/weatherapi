@@ -1,20 +1,20 @@
 import { StyleSheet, Text, View } from "react-native";
-import { CurrentWeatherDisplay } from "../components/CurrentWeatherDisplay";
 import { InputField } from "../components/InputField";
-import { SearchButton } from "../components/SearchButton";
+import {  SearchButtonWithLoading } from "../components/SearchButton";
 import { useWeather } from "../hooks/useWeather";
+import { CurrentWeatherDisplayWithError } from "../components/CurrentWeatherDisplay";
 
 
 
 export const Weather:React.FC = () => {
-    const  {fetchWeatherData, location, setLocation, weatherData} = useWeather()
+    const  {fetchWeatherData, location, setLocation, weatherData, isLoading, isError} = useWeather()
 
     return (
         <View style={styles.container}>
             <Text>Weather</Text>
             <InputField location={location} setLocation={setLocation}/>
-            <SearchButton fetchWeatherData={fetchWeatherData}/>
-            <CurrentWeatherDisplay weatherData={weatherData}/>
+            <SearchButtonWithLoading fetchWeatherData={fetchWeatherData} isLoading={isLoading}/>
+            <CurrentWeatherDisplayWithError weatherData={weatherData} isError={isError}/>
         </View>
     );
 }
