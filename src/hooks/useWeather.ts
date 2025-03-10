@@ -17,7 +17,6 @@ export const useWeather = () => {
             setIsError(false);
             try {
                 const weatherData = await weatherApi.getCurrentWeather(location)
-                console.log(weatherData);
             
                 if(weatherData){
                     setWeatherData(weatherData);
