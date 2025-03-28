@@ -3,12 +3,11 @@ import { CurrentWeatherResponse } from '../../services/weatherApi/weatherTypes';
 import { MAX_NETWORK_REQUEST_RETRIES } from '../../constants/contants';
 import { useWeatherApiContext } from '../../context/WeatherContext';
 import { useWeather } from '../useWeather';
-// Mock useWeatherApiContext
+
 jest.mock('../context/WeatherContext', () => ({
   useWeatherApiContext: jest.fn(),
 }));
 
-// Mock constants
 jest.mock('../../constants/contants', () => ({
   MAX_NETWORK_REQUEST_RETRIES: 3,
 }));

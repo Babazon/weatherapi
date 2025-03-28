@@ -3,14 +3,12 @@ import { ENDPOINTS } from '../../constants/contants';
 import { WeatherApi } from '../weatherApi/weatherApi';
 import { CurrentWeatherResponse } from '../weatherApi/weatherTypes';
 
-// Mock HttpAdapter
 jest.mock('../httpAdapter', () => ({
   HttpAdapter: jest.fn().mockImplementation(() => ({
     get: jest.fn(),
   })),
 }));
 
-// Mock ENDPOINTS
 jest.mock('../../constants/contants', () => ({
   ENDPOINTS: {
     CURRENT_WEATHER: '/current.json',

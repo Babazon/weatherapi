@@ -4,13 +4,10 @@ import { render, screen } from '@testing-library/react-native';
 import { WeatherApi } from '../../services/weatherApi/weatherApi';
 import { useWeatherApiContext, WeatherContextProvider } from '../WeatherContext';
 
-
-// Mock WeatherApi
 jest.mock('../../services/weatherApi/weatherApi', () => ({
   WeatherApi: jest.fn(),
 }));
 
-// Mock constants
 jest.mock('../../constants/contants', () => ({
   API_KEY: 'test-api-key',
   BASE_URL: 'http://test-base-url.com',

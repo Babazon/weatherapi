@@ -1,22 +1,19 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react-native';
 import { StatusBar } from 'expo-status-bar';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import App from '../App';
 import { Weather } from '../containers/Weather';
 import { WeatherContextProvider } from '../context/WeatherContext';
 
-// Mock the Weather component
 jest.mock('./containers/Weather', () => ({
   Weather: jest.fn(() => ({ type: 'mock-weather-container' })),
 }));
 
-// Mock the StatusBar
 jest.mock('expo-status-bar', () => ({
   StatusBar: jest.fn(() => ({ type: 'mock-status-bar' })),
 }));
 
-// Mock react-native
 jest.mock('react-native', () => ({
   ...jest.requireActual('react-native'),
   View: jest.fn(({ children, ...props }) => ({
