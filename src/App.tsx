@@ -5,7 +5,7 @@ import { WeatherContextProvider } from './context/WeatherContext';
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="app-container">
       <WeatherContextProvider>
         <Weather/>
         <StatusBar style="auto" />

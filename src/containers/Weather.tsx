@@ -7,13 +7,13 @@ import { CurrentWeatherDisplayWithError } from "../components/CurrentWeatherDisp
 
 
 export const Weather:React.FC = () => {
-    const  {fetchWeatherData, location, setLocation, weatherData, isLoading, isError} = useWeather()
+    const  {fetchWeatherDataWithRetry, location, setLocation, weatherData, isLoading, isError} = useWeather()
 
     return (
         <View style={styles.container}>
             <Text>Weather</Text>
             <InputField location={location} setLocation={setLocation}/>
-            <SearchButtonWithLoading fetchWeatherData={fetchWeatherData} isLoading={isLoading}/>
+            <SearchButtonWithLoading fetchWeatherData={fetchWeatherDataWithRetry} isLoading={isLoading}/>
             <CurrentWeatherDisplayWithError weatherData={weatherData} isError={isError}/>
         </View>
     );
