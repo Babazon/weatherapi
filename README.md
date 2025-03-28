@@ -35,90 +35,72 @@ The project follows the SOLID principles, which are fundamental design principle
 - Liskov Substitution Principle (LSP): The code should be able to be replaced with instances of its subtypes without altering the correctness of the program. For example, the `WithError` and `WithLoading` higher-order components can be used with any component to add error handling and loading indicators.
 - Interface Segregation Principle (ISP): The interfaces are designed to be specific and focused, rather than providing a large, general interface. For example, the `WeatherApi` interface only includes methods related to fetching weather data.
 - Dependency Inversion Principle (DIP): The code depends on abstractions, not concrete implementations. For example, the `Weather` container depends on the `useWeather` hook, not on the `WeatherApi` service directly.
-
-## Project Structure
-
-The project structure is as follows:
-
-weatherapp4/
-├── app.json
-├── index.ts
-├── jest.config.js
-├── package-lock.json
-├── package.json
-├── tsconfig.json
-├── assets/
-│   ├── adaptive-icon.png
-│   ├── favicon.png
-│   ├── icon.png
-│   └── splash-icon.png
-├── coverage/
-│   ├── clover.xml
-│   ├── coverage-final.json
-│   ├── lcov.info
-│   └── lcov-report/
-│       └── ...
-├── src/
-│   ├── App.tsx
-│   ├── tests/
-│   │   └── App.test.tsx
-│   ├── components/
-│   │   ├── CurrentWeatherDisplay.tsx
-│   │   ├── InputField.tsx
-│   │   ├── SearchButton.tsx
-│   │   ├── tests/
-│   │   │   ├── CurrentWeatherDisplay.test.tsx
-│   │   │   ├── InputField.test.tsx
-│   │   │   ├── SearchButton.test.tsx
-│   │   │   ├── WithError.test.tsx
-│   │   │   └── WithLoading.test.tsx
-│   │   └── hoc/
-│   │       ├── WithError.tsx
-│   │       └── WithLoading.tsx
-│   ├── constants/
-│   │   └── constants.ts
-│   ├── containers/
-│   │   └── Weather.tsx
-│   ├── context/
-│   │   ├── WeatherContext.tsx
-│   │   └── tests/
-│   │       └── WeatherContext.test.tsx
-│   ├── hooks/
-│   │   ├── useWeather.ts
-│   │   └── tests/
-│   │       └── useWeather.test.tsx
-│   ├── services/
-│   │   ├── httpAdapter.ts
-│   │   ├── tests/
-│   │   │   ├── httpAdapter.test.tsx
-│   │   │   └── weatherApi.test.tsx
-│   │   └── weatherApi/
-│   │       ├── weatherApi.ts
-│   │       └── weatherTypes.ts
-│   └── utils/
-│       ├── formatTemp.ts
-│       ├── formattedIconUrl.ts
-│       └── tests/
-│           └── formatTemp.test.tsx
-└── ...
+  
+## Project Structure  
+  
+The project structure is as follows:  
 
 
-## Installation and Setup
-
-1. Install Node.js and npm (or Yarn) if you haven't already.
-2. Clone the repository: `git clone https://github.com/your-username/weatherapp4.git`
-3. Change into the project directory: `cd weatherapp4`
-4. Install dependencies: `npm install` or `yarn`
-5. Create a `.env` file in the root directory of the project and add your weather API key: `WEATHER_API_KEY=your_api_key`
-
-## Running the App
-
-1. Start the Metro bundler: `npm start` or `yarn start`
-2. Run the app on iOS: `npm run ios` or `yarn ios`
-3. Run the app on Android: `npm run android` or `yarn android`
-
-## Testing
-
-1. Run all tests: `npm test` or `yarn test`
-2. Run tests in watch mode: `npm test -- --watch` or `yarn test --watch`
-3. Generate test coverage report: `npm test -- --coverage` or `yarn test --coverage`
+weatherapp4/  
+├── app.json  
+├── index.ts  
+├── jest.config.js  
+├── package-lock.json  
+├── package.json  
+├── tsconfig.json  
+├── assets/  
+│   ├── adaptive-icon.png  
+│   ├── favicon.png  
+│   ├── icon.png  
+│   └── splash-icon.png  
+├── coverage/  
+│   ├── clover.xml  
+│   ├── coverage-final.json  
+│   ├── lcov.info  
+│   └── lcov-report/  
+│       └── ...  
+├── src/  
+│   ├── App.tsx  
+│   ├── tests/  
+│   │   └── App.test.tsx  
+│   ├── components/  
+│   │   ├── CurrentWeatherDisplay.tsx  
+│   │   ├── InputField.tsx  
+│   │   ├── SearchButton.tsx  
+│   │   ├── tests/  
+│   │   │   ├── CurrentWeatherDisplay.test.tsx  
+│   │   │   ├── InputField.test.tsx  
+│   │   │   ├── SearchButton.test.tsx  
+│   │   │   ├── WithError.test.tsx  
+│   │   │   └── WithLoading.test.tsx  
+│   │   └── hoc/  
+│   │       ├── WithError.tsx  
+│   │       └── WithLoading.tsx  
+│   ├── constants/  
+│   │   └── constants.ts  
+│   ├── containers/  
+│   │   └── Weather.tsx  
+│   ├── context/  
+│   │   ├── WeatherContext.tsx  
+│   │   └── tests/  
+│   │       └── WeatherContext.test.tsx  
+│   ├── hooks/  
+│   │   ├── useWeather.ts  
+│   │   └── tests/  
+│   │       └── useWeather.test.tsx  
+│   ├── services/  
+│   │   ├── httpAdapter.ts  
+│   │   ├── tests/  
+│   │   │   ├── httpAdapter.test.tsx  
+│   │   │   └── weatherApi.test.tsx  
+│   │   └── weatherApi/  
+│   │       ├── weatherApi.ts  
+│   │       └── weatherTypes.ts  
+│   └── utils/  
+│       ├── formatTemp.ts  
+│       ├── formattedIconUrl.ts  
+│       └── tests/  
+│           └── formatTemp.test.tsx  
+└── ...  
+  
+  
